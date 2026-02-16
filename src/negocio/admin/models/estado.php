@@ -14,17 +14,49 @@ class Estado extends sistema{
 
     }
 
-    
 
-    function leerUno(){
-    
+
+    function leerUno($id){
+
+        $this->conectar();
+        $sql = "SELECT * FROM estado WHERE id_estado = :id_estado";
+        $stmt = $this->db->prepare(query: $sql);
+        $stmt->bindParam(':id_estado', var:$id,type: PDO::PARAM_INT);
+        $stmt->execute();
+        $estados = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $estados;
     }
-    function crear(){
+
+    function crear($data){
+        $this->conectar();
+        $sql = "INSERT INTO estado (estado) VALUES (:estado)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':estado', $data['estado'], PDO::PARAM_STR);
+        $resultado = $stmt->execute();
+        $cantidad = $stmt->rowCount();
+        return $cantidad;
+
     }
+
     function actualizar(){
+
+        $this->conectar();
+        $sql = "UPDATE estado SET estado = :estado WHERE id_estado = :id_estado";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':estado', $data['estado'], PDO::PARAM_STR);
+        $stmt->bindParam(':id_estado', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->rowCount();
 
     }
     function borrar(){
+
+    $this->conectar();
+    $sql = "DELETE FROM estado WHERE id_estado = :id_estado";
+    $stmt = $this->db->prepare($sql);
+    $stmt->bindParam(':id_estado', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->rowCount();
 
     }   
 }

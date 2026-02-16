@@ -1,0 +1,5 @@
+16/2/2026
+pdo
+las sentencias preparadas son una caracteristica de seguridad 
+para interactuar con la base de datos
+
