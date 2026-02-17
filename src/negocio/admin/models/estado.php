@@ -38,17 +38,25 @@ class Estado extends sistema{
 
     }
 
-    function actualizar(){
+   function actualizar($id, $data) { // Recibe el ID y el arreglo de datos 
 
-        $this->conectar();
-        $sql = "UPDATE estado SET estado = :estado WHERE id_estado = :id_estado";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(':estado', $data['estado'], PDO::PARAM_STR);
-        $stmt->bindParam(':id_estado', $id, PDO::PARAM_INT);
-        $stmt->execute();
-        return $stmt->rowCount();
+    $this->conectar(); // Establece conexión mediante PDO 
+    $sql = "UPDATE estado SET estado = :estado WHERE id_estado = :id_estado";
+    
+    $stmt = $this->db->prepare($sql);
+    
+    // Vinculación de parámetros para seguridad 
+    $stmt->bindParam(':estado', $data['estado'], PDO::PARAM_STR);
+    $stmt->bindParam(':id_estado', $id, PDO::PARAM_INT);
+    
+    $stmt->execute();
+    
+    // Guardamos el conteo en una variable y la retornamos
+    $cantidad = $stmt->rowCount(); 
+    return $cantidad;
+}
 
-    }
+
     function borrar(){
 
     $this->conectar();

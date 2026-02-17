@@ -11,17 +11,36 @@ try {
     
        // echo "ID: " . $datosEstado['id_estado'] . " - Nombre: " . $datosEstado['estado'] . "<br>";
      
+       
+    
 
+/*
     $data = [];
     $data['estado'] = "Baja California Sur"; 
     $cantidad = $estado->crear($data);
+  */  
+    
+
+
+
+    /* update 
+    */
+    $id_estado=1;
+    $data = ['estado' => "aguascalientes"];
+    $cantidad= $estado->actualizar($id_estado, $data);
     echo "Cantidad de registros afectados: " . $cantidad;
 
-    // 3. Corregir $app por $estado para obtener la lista completa
+
+    
+
     $estados = $estado->leer(); 
     
-    include (__DIR__ . "/views/estados/index.php"); // Nota: corregí la ruta a plural 'estados'
-      
+    include (__DIR__ . "/views/estados/index.php");
+
+     /* delete 
+    */
+   
+    
 } catch(PDOException $e) {
     
 }
