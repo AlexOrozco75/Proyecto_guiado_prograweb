@@ -3,3 +3,6 @@ pdo
 las sentencias preparadas son una caracteristica de seguridad 
 para interactuar con la base de datos
 
+
+17/2/2026
+revisar funciones de php -is set

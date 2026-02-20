@@ -38,9 +38,9 @@ class Estado extends sistema{
 
     }
 
-   function actualizar($id, $data) { // Recibe el ID y el arreglo de datos 
+    function actualizar($id, $data){
 
-    $this->conectar(); // Establece conexión mediante PDO 
+        $this->conectar(); // Establece conexión mediante PDO 
     $sql = "UPDATE estado SET estado = :estado WHERE id_estado = :id_estado";
     
     $stmt = $this->db->prepare($sql);
@@ -54,10 +54,9 @@ class Estado extends sistema{
     // Guardamos el conteo en una variable y la retornamos
     $cantidad = $stmt->rowCount(); 
     return $cantidad;
-}
 
-
-    function borrar(){
+    }
+    function borrar($id){
 
     $this->conectar();
     $sql = "DELETE FROM estado WHERE id_estado = :id_estado";
