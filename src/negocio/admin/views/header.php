@@ -35,6 +35,7 @@
                             <li><a class="dropdown-item" href="estado.php">ESTADOS</a></li>
                             <li><a class="dropdown-item" href="municipio.php">MUNICIPIOS</a></li>
                             <li><a class="dropdown-item" href="negocio.php">NEGOCIOS</a></li>
+                        <li><a class="dropdown-item" href="empleados.php">EMPLEADOS</a></li>
 
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Algo más aquí</a></li>
